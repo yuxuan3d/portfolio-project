@@ -1,43 +1,71 @@
+.hero-section {
+    min-height: calc(100vh - 80px); /* Keep minimum height */
+    align-items: center;
+    /* width: 100%; */
+    position: relative; /* Good practice */
+    overflow: auto;
+    display: grid;
+}
+
+
+
+.canvas-background-wrapper > div > canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-content-container {
+    grid-column: 1 / 2; /* Assign to the first column */
+    position: relative; /* Keep for z-index */
+    z-index: 1; /* Ensure text is above canvas if needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center text block vertically within its flex container */
+    align-items: flex-start; /* Align text content to the left */
+    padding: 0 20px;
+    color: #fff;
+    pointer-events: none; /* Keep if needed */
+    padding-left: 5%; /* Optional left padding */
+    height: 100%; /* Make the container fill the grid cell height */
+}
+
+.canvas-grid-placeholder {
+    grid-column: 2 / 3; /* Placeholder in the second column */
+    height: 100%; /* Fill grid cell */
+    /* No visual appearance needed */
+}
+
 .canvas-background-wrapper {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0; /* Sit behind the content */
-    background-color: #18171C; /* Optional: Fallback bg if canvas takes time to load */
-}
-
-.canvas-background-wrapper > div > canvas {
-    display: block; /* Prevents potential small space below canvas */
-  }
-
-.hero-content-container {
-    position: relative; /* Sit above the canvas wrapper */
-    z-index: 1; /* Ensure it's on top */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    height: calc(100vh - 80px); /* Fill the available space below the navbar padding */
-    padding: 0 20px; /* Add some horizontal padding */
-    color: #fff; /* Ensure text color is visible */
-    pointer-events: none;
+    left: 0; /* Start from the very left */
+    width: 100%; /* Cover the full width */
+    height: 100%; /* Cover the full height */
+    z-index: 0; /* Canvas BEHIND text */
 }
 
 .name-title {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 300;
-    font-size: clamp(3rem, 8vw, 5rem); /* Responsive font size */
-    margin-bottom: 1rem;
-    color: #fff; /* Explicitly set color */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Optional shadow for readability */
-  }
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    margin: 0;
+}
 
 .hero-subtitle {
-    font-size: clamp(1rem, 3vw, 1.25rem); /* Responsive font size */
+    font-size: clamp(1rem, 3vw, 1.25rem);
     margin-bottom: 30px;
-    color: #eee; /* Slightly different color */
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Optional shadow */
+    color: #eee;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
-  
+
+.hero-content-wrapper {
+    margin: 0 auto; 
+    width: 100%;
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    height: 100%;
+}

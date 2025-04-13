@@ -59,7 +59,7 @@ const Experiments = () => {
   return (
     <section id="experiments">
       <div className="container">
-        <h2>My Experiments</h2>
+        <h2>What I play around with</h2>
 
         {/* The placeholder div from Curator.io */}
         {/* Assign the ref to this div */}

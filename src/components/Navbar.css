@@ -8,20 +8,11 @@
     z-index: 999;
     transition: background-color 0.3s ease; /* Smooth transition if background changes */
   
-    /* Translucent Background & Blur */
-    background-image: linear-gradient(
-    to bottom,                           /* Gradient direction */
-    rgba(0, 0, 0, 0.3) 0px,        /* Fully opaque white at the top */
-    rgba(0, 0, 0, 0.3) 50px,        /* Still fully opaque white at 50px */
-    rgba(0, 0, 0, 0) 70px,        /* Fully transparent white at 70px */
-    rgba(0, 0, 0, 0) 100%       /* Stays transparent to the bottom */
-  );
     backdrop-filter: blur(15px); /* Blur effect */
     -webkit-backdrop-filter: blur(15px); /* For Safari */
   
-
-     /* Optional: Subtle shadow */
-     /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); */
+    border-bottom: 1px solid var(--border-color);
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   }
   
   /* Container for Nav content */
