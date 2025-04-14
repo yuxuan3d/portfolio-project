@@ -1,9 +1,8 @@
 .footer {
-    background-color: #e9ecef; /* Light gray background */
-    color: #555; /* Muted text color */
+    color: #9c9c9c; /* Muted text color */
     padding: 30px 20px;
     text-align: center;
-    border-top: 1px solid var(--border-color);
+
   }
   
   .footer-container {
@@ -12,7 +11,7 @@
   }
   
   .footer-links a {
-    color: #555;
+    color: #9c9c9c;
     margin: 0 15px;
     text-decoration: none;
     transition: color 0.3s ease;

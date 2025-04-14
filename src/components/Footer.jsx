@@ -8,9 +8,9 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-links">
-          <a href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="YOUR_VIMEO_LINK" target="_blank" rel="noopener noreferrer">Vimeo</a>
-          {/* Add other links like LinkedIn, GitHub etc. if needed */}
+          <a href="https://www.instagram.com/yxperiments" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://vimeo.com/yxperiments" target="_blank" rel="noopener noreferrer">Vimeo</a>
+          <a href="https://www.linkedin.com/in/yu-xuan-chong/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
         <div className="footer-copy">
           © {currentYear} Yu Xuan. All Rights Reserved.
