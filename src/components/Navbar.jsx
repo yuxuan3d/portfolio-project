@@ -12,9 +12,9 @@ const Navbar = () => {
     console.log('Clicked link ID:', linkId);
 
     if (section) {
-      const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 80; // Get navbar height dynamically or use default
+      const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 50; // Get navbar height dynamically or use default
       const elementPosition = section.getBoundingClientRect().top; // Position relative to viewport
-      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight; // Adjust for navbar height
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight/2; // Adjust for navbar height
 
       window.scrollTo({
         top: offsetPosition,
@@ -35,21 +35,28 @@ const Navbar = () => {
     { id: 'skills', label: 'SKILLS' },
     { id: 'bullet', label: '•' },
     { id: 'projects', label: 'PROJECTS' },
-    { id: 'bullet', label: '•' }
-  ];
-
-  const rightLinks = [
     { id: 'bullet', label: '•' },
     { id: 'experiments', label: 'EXPERIMENTS' },
-    { id: 'bullet ', label: '•' },
-    { id: 'contact', label: 'CONTACT' },
   ];
 
   return (
     <nav className="navbar">
+      <div className='nav-wrapper'>
+      <a
+          href="#home"
+          className="nav-logo"
+          onClick={(e) => {
+            e.preventDefault();
+            handleLinkClick('home');
+          }}
+        >
+          {/* Replace with your actual logo text or an <img> tag */}
+          Yu Xuan
+        </a>
       <div className="nav-container">
+        
         {/* Left side links */}
-        <ul className="nav-menu nav-menu-left">
+        <ul className="nav-menu">
           {leftLinks.map(link => (
             <li key={link.id} className={`nav-link`}>
               <a
@@ -65,37 +72,20 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-
-        {/* Center Logo */}
-        <a
-          href="#home"
-          className="nav-logo"
-          onClick={(e) => {
+      
+        <div className='button-wrapper'>
+          <button className='button-arrow' onClick={(e) => {
             e.preventDefault();
-            handleLinkClick('home');
-          }}
-        >
-          {/* Replace with your actual logo text or an <img> tag */}
-          Yu Xuan
-        </a>
+            handleLinkClick('contact');
+          }}>
+            Contact Me
+            <div className="arrow-wrapper">
+                <div className="arrow"></div>
 
-        {/* Right side links */}
-        <ul className="nav-menu nav-menu-right">
-          {rightLinks.map(link => (
-            <li key={link.id} className="nav-item">
-              <a
-                href={`#${link.id}`}
-                className={`nav-link ${activeLink === link.id ? 'active' : ''} ${link.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLinkClick(link.id);
-                }}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+              </div>
+          </button>
+        </div>
+      </div>
       </div>
     </nav>
   );

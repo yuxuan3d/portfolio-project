@@ -16,7 +16,7 @@ body, h1, h2, h3, p, ul, li, a, button, input, textarea {
   --background-color: #0f111f; /* White background */
   --text-color: #fff;       /* Dark gray text */
   --primary-color: #4c9ae7;    /* Example primary color (blue) - change as needed */
-  --section-padding: 60px 8vw; /* Padding for sections */
+  --section-padding: 60px 10vw; /* Padding for sections */
   --card-background: #0f111f;  /* Light gray for cards */
   --border-color: #2e3157;    /* Light border color */
 }
@@ -96,25 +96,28 @@ h2::after {
 
 /* Basic Card Styling */
 .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap:wrap;
+    gap: 30px;
     margin-top: 20px;
-    align-items: start;
+    align-items: center;
+    justify-content: center;
 }
 
 .card {
     background-color: var(--card-background);
+    background-image: linear-gradient(-135deg,#191c30, #07070e);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 20px 20px 10px;
-    text-align: center;
+    padding: 40px;
+    text-align: left;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-    transition: transform 0.2s ease-in-out;
-    min-height: 120px;
+    min-height: 230px;
+    max-width: 350px;
 }
 
-.card:focus-within{
+.card:hover{
+    transition: border-color 0.4s ease-out, box-shadow 0.3s ease-out;
     border-color: var(--primary-color);
     box-shadow: 0 4px 12px rgba(76, 154, 231, 0.5);
 }
@@ -122,9 +125,9 @@ h2::after {
 .icon-grid {
     display: flex;
     align-items: center;
-    justify-content: center;
+
     gap: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .card img {
@@ -144,27 +147,10 @@ h2::after {
 }
 
 .card-description {
-  max-height: 0;
-  opacity: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-out, opacity 0.3s ease-out; /* Smooth transition */
-  padding: 0 0px; /* Initially no padding */
-  color: #fff; /* Ensure text color is set */
-  font-size: 0.95rem; /* Match original p style */
+  color: rgb(203, 211, 226); /* Ensure text color is set */
+  font-size: 1rem; /* Match original p style */
   text-align: left; /* Or keep center if preferred */
-  padding: 0px 20px;
-}
-
-.card:hover .card-description,
-.card:focus-within .card-description {
-    max-height: 200px; /* Adjust this value based on your longest description */
-    opacity: 1;
-
-}
-
-.card p {
-    font-size: 0.95rem;
-    color: #fff;
 }
 
 /* Placeholder for image grid */
