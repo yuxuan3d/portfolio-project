@@ -38,8 +38,8 @@ const Cinder = () => {
                         </div>
                         <div className='video-wrapper'>
                             <iframe src="https://www.youtube.com/embed/Zg7VXwn8b2M?si=vlxtHcv2zhOBFaLt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className='video'></iframe>
-                            <img src="src/assets/cinder_still.jpg" alt="Cinder" className='project-image-focused'/>
-                            <img src="src/assets/cinder_stream.jpg" alt="Cinder" className='project-image-small'/>
+                            <img src="/cinder_still.jpg" alt="Cinder" className='project-image-focused'/>
+                            <img src="/cinder_stream.jpg" alt="Cinder" className='project-image-small'/>
                         </div>
                     </div>
                 </div>
