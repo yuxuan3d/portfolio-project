@@ -112,8 +112,10 @@ function Pointer({ vec = new THREE.Vector3() }) {
 }
 
 function SceneContent({ sphereMaterials, translucentSphereCount }) {
+  
   // *** This is where useThree() is safe to call ***
   const { size, viewport } = useThree();
+  const [isInitialized, setIsInitialized] = useState(false);
 
   // Initial state calculation now happens safely inside the Canvas context
   const [responsiveParams, setResponsiveParams] = useState(() => {
@@ -129,15 +131,29 @@ function SceneContent({ sphereMaterials, translucentSphereCount }) {
 
   // Effect to update params when size/viewport changes
   useEffect(() => {
-    const newTargetX = viewport.width / 4;
-    const newSpread = Math.min(viewport.width, viewport.height) / 2;
-    const newRadius = Math.max(0.4, Math.min(0.8, viewport.width * 0.04)); // Recalculate radius
+    let newTargetX
+    let newTargetY
+    let newSpread
+    let newRadius = Math.max(0.4, Math.min(0.8, viewport.width * 0.04)); // Recalculate radius
+    const isMobile = size.width < 768;
+
+    if (isMobile) {
+      newTargetX = 0; // Target center X for mobile
+      newTargetY = -viewport.height / 6
+      newSpread = Math.min(viewport.width, viewport.height) / 4; // Tighter spread for mobile
+    } else {
+      newTargetX = viewport.width / 4; // Original target center X for desktop
+      newTargetY = 0
+      newSpread = Math.min(viewport.width, viewport.height) / 2; // Original spread for desktop
+    }
 
     setResponsiveParams({
-      targetCenter: new THREE.Vector3(newTargetX, 0, 0),
+      targetCenter: new THREE.Vector3(newTargetX, newTargetY, 0),
       ballRadius: newRadius,
       spreadFactor: newSpread,
     });
+
+    setIsInitialized(true);
 
     // console.log(`Resized: Viewport W: ${viewport.width.toFixed(2)}, H: ${viewport.height.toFixed(2)}, Radius: ${newRadius.toFixed(2)}`);
 
@@ -146,6 +162,8 @@ function SceneContent({ sphereMaterials, translucentSphereCount }) {
   return (
     <>
       <ambientLight intensity={0.5} />
+
+      {isInitialized && (
       <Physics /*debug*/ timeStep="vary" gravity={[0, 0, 0]}>
         {/* Group position might not be needed if targetCenter is handled internally by spheres */}
         {/* <group position={responsiveParams.targetCenter.toArray()}> */}
@@ -172,6 +190,7 @@ function SceneContent({ sphereMaterials, translucentSphereCount }) {
           ))}
         </group>
       </Physics>
+      )}
       <Environment files="/brown_photostudio_02_1k.hdr" background={false} environmentIntensity={1}/>
       <EffectComposer disableNormalPass multisampling={2}>
         <N8AO distanceFalloff={1} aoRadius={1} intensity={2} />

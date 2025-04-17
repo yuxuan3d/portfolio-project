@@ -3,6 +3,11 @@ import './Navbar.css'; // We will update this file next
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState('home'); // Keep track of active link
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   // Smooth scroll logic (adjusted for potentially fixed navbar height)
   const handleLinkClick = (linkId) => {
@@ -33,9 +38,9 @@ const Navbar = () => {
   // Adjust these based on which sections you want on which side
   const leftLinks = [
     { id: 'skills', label: 'SKILLS' },
-    { id: 'bullet', label: '•' },
+    { id: 'bullet1', label: '•' },
     { id: 'projects', label: 'PROJECTS' },
-    { id: 'bullet', label: '•' },
+    { id: 'bullet2', label: '•' },
     { id: 'experiments', label: 'EXPERIMENTS' },
   ];
 
@@ -53,6 +58,18 @@ const Navbar = () => {
           {/* Replace with your actual logo text or an <img> tag */}
           Yu Xuan
         </a>
+      
+        <button
+         className={`hamburger-menu ${isMobileMenuOpen ? 'active' : ''}`} // Add active class for X animation
+         onClick={toggleMobileMenu}
+         aria-label="Toggle menu"
+         aria-expanded={isMobileMenuOpen}
+       >
+         <span></span>
+         <span></span>
+         <span></span>
+       </button>
+
       <div className="nav-container">
         
         {/* Left side links */}
@@ -86,6 +103,42 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+
+      {/* mobile menu */} 
+      <div className={`mobile-nav-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+         <ul className="mobile-nav-menu">
+           {/* Map over links (excluding bullets) */}
+           {leftLinks.filter(link => !link.id.startsWith('bullet')).map(link => (
+             <li key={link.id} className="mobile-nav-item">
+               <a
+                 href={`#${link.id}`}
+                 className={`mobile-nav-link ${activeLink === link.id ? 'active' : ''}`}
+                 onClick={(e) => {
+                   e.preventDefault();
+                   handleLinkClick(link.id);
+                   setIsMobileMenuOpen(false); // Close menu
+                 }}
+               >
+                 {link.label}
+               </a>
+             </li>
+           ))}
+           {/* Add Contact link */}
+           <li className="mobile-nav-item">
+             <a
+               href="#contact"
+               className={`mobile-nav-link ${activeLink === 'contact' ? 'active' : ''}`}
+               onClick={(e) => {
+                 e.preventDefault();
+                 handleLinkClick('contact');
+                 setIsMobileMenuOpen(false); // Close menu
+               }}
+             >
+               Contact Me
+             </a>
+           </li>
+         </ul>
+       </div>
       </div>
     </nav>
   );

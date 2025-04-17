@@ -58,17 +58,20 @@ const Experiments = () => {
 
   return (
     <section id="experiments">
-      <div className="container">
+      <div className="experiments-container">
         <h2>What I play around with</h2>
 
         {/* The placeholder div from Curator.io */}
         {/* Assign the ref to this div */}
-        <div id="curator-feed-default-feed-layout" ref={feedContainerRef}>
-          {/* Keep the required anchor tag for Curator.io branding */}
-          <a href="https://curator.io" target="_blank" className="crt-logo crt-tag">
-            Powered by Curator.io
-          </a>
+        <div className='curator-feed-wrapper'>
+          <div id="curator-feed-default-feed-layout" ref={feedContainerRef}>
+            {/* Keep the required anchor tag for Curator.io branding */}
+            <a href="https://curator.io" target="_blank" className="crt-logo crt-tag">
+              Powered by Curator.io
+            </a>
+          </div>
         </div>
+        
 
         {/* You can keep the link to your profile if you like */}
          <p style={{textAlign: 'center', marginTop: '30px'}}>

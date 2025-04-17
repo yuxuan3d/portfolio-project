@@ -43,7 +43,7 @@ const Skills = () => {
               <h3>{skill.title}</h3>
               <div className='icon-grid'>
                 {skill.icons.map(icon => (
-                    <img src={icon.loc} alt={icon.title} className='icons'/>
+                    <img key={icon.title} src={icon.loc} alt={icon.title} className='icons'/>
                 ))}
               </div>
               <div className="card-description">

@@ -18,7 +18,7 @@ body, h1, h2, h3, p, ul, li, a, button, input, textarea {
   --primary-color: #4c9ae7;    /* Example primary color (blue) - change as needed */
   --section-padding: 60px 10vw; /* Padding for sections */
   --card-background: #0f111f;  /* Light gray for cards */
-  --border-color: #2e3157;    /* Light border color */
+  --border-color: #323661;    /* Light border color */
 }
 
 
@@ -30,6 +30,7 @@ body {
   position: relative; /* Needed for z-index stacking context */
   background-color: var(--background-color); /* Fallback background for body */
   min-height: 100vh;
+  
 }
 
 body::before {
@@ -40,14 +41,11 @@ body::before {
   width: 100%;
   height: 100vh; /* Cover only the viewport height */
   background: radial-gradient(#20243d, #07070e 120%);
+  
   z-index: -1; /* Place it behind the body's content */
   pointer-events: none; /* Ensure it doesn't interfere with clicks */
 }
 
-
-main {
-  /* padding: 0 8vw; */
-}
 
 a {
   color: var(--primary-color);
@@ -106,7 +104,7 @@ h2::after {
 
 .card {
     background-color: var(--card-background);
-    background-image: linear-gradient(-135deg,#191c30, #07070e);
+    background-image: linear-gradient(-135deg,#252a47, #07070e);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 40px;
@@ -186,7 +184,7 @@ h2::after {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #555;
+    color: #fff;
 }
 
 .form-group input,
@@ -209,7 +207,7 @@ h2::after {
     background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 50px;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -218,4 +216,244 @@ h2::after {
 .submit-button:hover {
     background-color: darken(var(--primary-color), 10%); /* You might need a color function library or just use a darker hex code */
     background-color: #0056b3; /* Darker blue example */
+}
+
+.project-card {
+  max-width: 300px;
+  
+}
+
+.project-image {
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.card .project-title {
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.project-link {
+    box-sizing: border-box;
+    color: var(--primary-color);
+    display: inline-block;
+    transition: 0.2s background;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.project-wrapper {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  transform: translatex(-25px);
+}
+
+.back-button-wrapper {
+ 
+ padding-top: 12.5px;
+}
+
+.back-button {
+  color: var(--primary-color);
+}
+
+.back-button:hover {
+  transition: color 0.4s ease-out;
+  color: #fff;
+}
+
+.project-title {
+  margin: 0;
+  padding: 0;
+  font-size: 2.5rem;
+  font-weight: 500;
+  font-family: 'Manrope', sans-serif;
+  line-height: 1;
+}
+
+.project-text-image-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start; 
+  gap: 20px; /* Example gap */
+  max-height: 450px;
+  min-height: 100%;
+}
+
+.project-content {
+  display: inline-block;
+  max-width: 50vw;
+  background-color: var(--card-background);
+  background-image: linear-gradient(-135deg,#252a47, #07070e);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 40px;
+  text-align: left;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.project-content>h3{
+  margin-bottom: 10px;
+}
+
+.video-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 1;
+  gap: 20px;
+}
+
+.video {
+  aspect-ratio: 16/9;
+  flex-grow: 1;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.video-wrapper>img{
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.project-image-focused {
+  border-radius: 8px;
+  height: 100%;
+  max-height: 400px;
+}
+
+.project-subheading {
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.project-description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: rgb(203, 211, 226);
+  margin-bottom: 40px;
+}
+
+.cinder-content-wrapper {
+  display: flex;
+}
+
+.tech-description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: rgb(203, 211, 226);
+}
+
+.project-image-small {
+  max-height: 250px;
+  border-radius: 8px;
+}
+
+ul {
+  padding-left: 10px;
+}
+
+#curator-feed-default-feed-layout {
+  padding: 0 10vw;
+}
+
+.crt-post-c {
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.crt-feed-window {
+  overflow:visible !important;
+}
+
+.crt-post-has-image {
+  padding: 10px !important;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 30px 3vw;
+  }
+
+  #experiments {
+    padding: var(--section-padding);
+  }
+
+  .hero-section {
+      display: grid; /* Switch to grid */
+      grid-template-rows: repeat(2, 1fr);
+      align-items: center;
+      padding: var(--section-padding); /* Use global padding */
+      text-align: left;
+  }
+
+  .hero-content-wrapper {
+     grid-column: 2 / 1;
+     justify-content: center; /* Align container left */
+  }
+
+   .hero-content-container {
+     align-items: flex-start; /* Align text left */
+     max-width: none; /* Remove max-width */
+  }
+
+  /* Adjust clamp values for desktop */
+  .name-title {
+      font-size: clamp(4rem, 8vw, 6rem);
+  }
+  .hero-subtitle {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+  }
+
+  .button-container {
+    width: 100%;
+      gap: 20px;
+      justify-content: center;
+  }
+
+  .hero-button {
+     width: auto; /* Reset width */
+     max-width: none;
+  }
+
+  /* Placeholder for the grid */
+  .canvas-grid-placeholder {
+      display: block;
+      grid-column: 2 / 3;
+      height: 100%;
+  }
+
+  #curator-feed-default-feed-layout {
+    padding: 0;
+  }
+
+  .crt-grid-post{
+    width:150px !important;
+  }
+
+  .crt-feed-window {
+    height: auto !important;
+  }
+
+  .project-wrapper {
+    gap: 10px;
+  }
+
+  .project-text-image-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-content {
+    padding: 20px;
+    max-width: none;
+  }
+
+  .back-button {
+    width: 2rem !important;
+    height: 2rem ;
+    padding-left: 5vw;
+  }
 }

@@ -11,7 +11,7 @@ const Contact = () => {
     <section id="contact">
       <div className="container">
         <h2>Contact Me</h2>
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form className="contact-form" action="https://formspree.io/f/xblgebkv" method="POST">
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input type="text" id="name" name="name" required />
