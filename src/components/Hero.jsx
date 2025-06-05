@@ -6,11 +6,6 @@ const Hero = () => {
   return (
     <>
       <section id="home" className="hero-section" >
-        <div className="canvas-background-wrapper">
-                <Suspense fallback={null}>
-                  <FloatingScene />
-                </Suspense>
-          </div>
           <div className="hero-content-wrapper" >
             <div className="hero-content-container">
                 <h1 className='name-title'>Hi, I'm <span className='span-bold'>Yu Xuan</span></h1>
